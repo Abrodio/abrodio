@@ -1,39 +1,26 @@
 import { useState } from "react";
-import UserLogin from "./UserLogin";
+import Register from "./Register";
+import Login from "./Login";
 import Chat from "./Chat";
 import AdminLogin from "./AdminLogin";
 import AdminDashboard from "./AdminDashboard";
 
+function getInitialScreen() {
+  if (localStorage.getItem("admin")) return "adminDashboard";
+  if (localStorage.getItem("user")) return "chat";
+  return "login";
+}
+
 export default function App() {
-  const [screen, setScreen] = useState("userLogin"); // userLogin | chat | adminLogin | adminDashboard
-  const [user, setUser] = useState(null);   // { username, city }
-  const [admin, setAdmin] = useState(null); // { adminName, city }
+  const [screen, setScreen] = useState(getInitialScreen);
 
-  if (screen === "userLogin")
-    return (
-      <UserLogin
-        onLogin={(username, city, role) => {
-          if (role === "admin") { setScreen("adminLogin"); return; }
-          setUser({ username, city });
-          setScreen("chat");
-        }}
-      />
-    );
+  const nav = (s) => setScreen(s);
 
-  if (screen === "chat")
-    return <Chat username={user.username} city={user.city} onBack={() => setScreen("userLogin")} />;
+  if (screen === "register")       return <Register onSwitch={nav} />;
+  if (screen === "login")          return <Login onSwitch={nav} />;
+  if (screen === "chat")           return <Chat onLogout={() => nav("login")} />;
+  if (screen === "adminLogin")     return <AdminLogin onSwitch={nav} />;
+  if (screen === "adminDashboard") return <AdminDashboard onLogout={() => nav("adminLogin")} />;
 
-  if (screen === "adminLogin")
-    return (
-      <AdminLogin
-        onLogin={(adminName, city) => {
-          setAdmin({ adminName, city });
-          setScreen("adminDashboard");
-        }}
-        onBack={() => setScreen("userLogin")}
-      />
-    );
-
-  if (screen === "adminDashboard")
-    return <AdminDashboard adminName={admin.adminName} city={admin.city} onBack={() => setScreen("adminLogin")} />;
+  return <Login onSwitch={nav} />;
 }

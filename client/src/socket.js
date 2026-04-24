@@ -1,9 +1,9 @@
 import { io } from "socket.io-client";
 
+const URL = process.env.REACT_APP_SOCKET_URL || "http://localhost:4000";
+
 if (!window._socket) {
-  window._socket = io("https://chat-city.onrender.com");
+  window._socket = io(URL);
 }
 
-const socket = window._socket;
-
-export default socket;
+export default window._socket;

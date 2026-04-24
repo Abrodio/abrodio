@@ -456,3 +456,15 @@ body {
   0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
   30%            { transform: translateY(-6px); opacity: 1; }
 }
+
+/* ── Error box ── */
+.error-box {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  text-align: center;
+}
