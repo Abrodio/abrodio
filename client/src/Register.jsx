@@ -42,7 +42,7 @@ export default function Register({ onSwitch }) {
       <div className="card">
         <div className="logo">🏙️</div>
         <h1>Create Account</h1>
-        <p className="subtitle">Join your city chat room</p>
+        <p className="subtitle">Join your Abrodio room</p>
         {error && <div className="error-box">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="field">

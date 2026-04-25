@@ -79,7 +79,7 @@ export default function Chat({ onLogout }) {
         <div className="chat-header-left">
           <div className="chat-avatar">{user.name[0].toUpperCase()}</div>
           <div className="chat-header-info">
-            <h3>💬 City Chat</h3>
+            <h3>💬 Abrodio</h3>
             <span><span className="online-dot" />Logged in as <b>{user.name}</b></span>
           </div>
         </div>

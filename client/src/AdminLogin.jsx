@@ -28,7 +28,7 @@ export default function AdminLogin({ onSwitch }) {
       <div className="card">
         <div className="logo">🛡️</div>
         <h1>Admin Portal</h1>
-        <p className="subtitle">Login to manage your city</p>
+        <p className="subtitle">Login to manage Abrodio</p>
         {error && <div className="error-box">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="field">

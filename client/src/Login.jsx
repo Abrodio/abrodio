@@ -28,7 +28,7 @@ export default function Login({ onSwitch }) {
       <div className="card">
         <div className="logo">💬</div>
         <h1>Welcome Back</h1>
-        <p className="subtitle">Login to your city chat</p>
+        <p className="subtitle">Login to Abrodio</p>
         {error && <div className="error-box">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="field">

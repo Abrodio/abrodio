@@ -20,8 +20,8 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:3000",
-      "https://chat-city.vercel.app",
-      "https://chat-city-ejnb9xyz4-venkycodexs-projects.vercel.app",
+      "https://abrodio.vercel.app",
+      /\.vercel\.app$/,
     ],
     methods: ["GET", "POST"],
   },
